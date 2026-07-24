@@ -123,7 +123,27 @@ siralisayilar = besyuzdenkucuksayilar.slice().sort((a, b) => a - b);
 */
 
 tekraredensayilar = [];
-const sayiSayaci = {};
+const sayiSayaclari = {};
+
+for (let i = 0; i < sayilar.length; i++) {
+  const sayi = sayilar[i];
+  if (sayiSayaclari[sayi]) {
+    sayiSayaclari[sayi]++;
+  } else {
+    sayiSayaclari[sayi] = 1;
+  }
+}
+
+for (const sayi in sayiSayaclari) {
+  const tekrarSayisi = sayiSayaclari[sayi];
+  
+  if (tekrarSayisi > 1) {
+    tekraredensayilar.push(`${sayi} sayısı ${tekrarSayisi} kere tekrar edilmiştir`);
+  }
+}
+
+console.log(tekraredensayilar);
+
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 module.exports = {
